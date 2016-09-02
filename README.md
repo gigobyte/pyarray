@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="" alt="pyarray logo" width="200">
+  <img src="https://raw.githubusercontent.com/gigobyte/pyarray/master/logo.png" alt="pyarray logo" width="400">
   <br>
   pyarray
   <br>
