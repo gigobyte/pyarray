@@ -27,7 +27,6 @@ export default function pyarray(obj) {
 		},
 
 		enumerate: function(target) {
-			console.log('called');
 			return Object.keys(target.obj)[Symbol.iterator]()
 		},
 

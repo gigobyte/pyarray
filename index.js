@@ -41,7 +41,6 @@ function pyarray(obj) {
 		},
 
 		enumerate: function enumerate(target) {
-			console.log('called');
 			return Object.keys(target.obj)[Symbol.iterator]();
 		},
 

@@ -49,5 +49,5 @@ Python | pyarray | Result
 ```fruits[0:-2]``` | ```fruits.get(0,-2)``` | ```['Banana', 'Apple', 'Orange']```
 ```fruits[0:-1:2]``` | ```fruits.get(0,-1,2)``` | ```['Banana', 'Orange']```
 ```fruits[::-1]``` | ```fruits.get(null,null,-1)``` | ```['Grape', 'Plum', 'Orange', 'Apple', 'Banana']```
-```fruits[2:]``` | ```fruits.get(2, null)``` | ```['Orange', 'Plum', 'Grape']```
+```fruits[2:]``` | ```fruits.get(2,null)``` | ```['Orange', 'Plum', 'Grape']```
 ```fruits[2::2]``` | ```fruits.get(2,null,2)``` | ```['Orange', 'Grape']```
