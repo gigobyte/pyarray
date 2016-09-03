@@ -1,0 +1,23 @@
+{
+  "name": "pyarray",
+  "version": "1.0.0",
+  "description": "A node module for manipulating arrays just like how you would in Python!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gigobyte/pyarray.git"
+  },
+  "keywords": [
+    "python",
+    "array"
+  ],
+  "author": "Stanislav Iliev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gigobyte/pyarray/issues"
+  },
+  "homepage": "https://github.com/gigobyte/pyarray#readme"
+}

@@ -1,4 +1,4 @@
-function pyarray(obj) {
+export default function pyarray(obj) {
 	const pyarr = new Pyarray(obj);
 
 	const proxy = new Proxy(pyarr, {
@@ -40,6 +40,50 @@ class Pyarray {
 		if(index >= this.obj.length) {
 			throw new Error('pyarray: IndexError: list index out of range');
 		}
+	}
+
+	get(start, end, step) {
+		if(typeof start === 'number') {
+			start = this._transformIndex(start);
+			this._validateIndex(start);
+		}
+		if(typeof end === 'number') {
+			end = this._transformIndex(end);
+			this._validateIndex(end);
+		}
+
+		switch(arguments.length) {
+			case 0: return this.obj;
+			case 1: return this.obj[start];
+		}
+
+		const isThereStep = typeof step === 'number';
+
+
+		if(!start && !end) {
+			start = 0;
+			end = this.obj.length;
+		}
+
+		let result =  this.obj.slice(start, end);
+
+		if(isThereStep) {
+			 if(step === 0) throw new Error('pyarray: ValueError: slice step cannot be zero');
+
+			 if(step < 0) result.reverse();
+			 step = Math.abs(step);
+
+			 if(step > 1) {
+			 	let final = [];
+				for(let i = result.length - 1; i >= 0; i--) {
+					(i % step === 0) && final.push(result[i]);
+				}
+				final.reverse();
+				result = final;
+			 }
+		}
+
+		return result;
 	}
 
 	append(obj) {
@@ -89,7 +133,3 @@ class Pyarray {
 		}, 0);
 	}
 }
-
-let test = pyarray([1,2,3]);
-test.insert(-1, 200);
-console.log(test);
