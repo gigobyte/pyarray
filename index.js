@@ -29,6 +29,24 @@ function pyarray(obj) {
 			//handle negative indexes
 			var prop = parseInt(name, 10);
 			if (prop && prop < 0) return target.obj[target.obj.length + prop];
+		},
+
+		has: function has(target, key) {
+			return key in target.obj;
+		},
+
+		deleteProperty: function deleteProperty(target, key) {
+			delete target.obj[key];
+			return true;
+		},
+
+		enumerate: function enumerate(target) {
+			console.log('called');
+			return Object.keys(target.obj)[Symbol.iterator]();
+		},
+
+		ownKeys: function ownKeys(target) {
+			return Reflect.ownKeys(target.obj);
 		}
 	});
 
@@ -81,10 +99,8 @@ var Pyarray = function () {
 
 			var isThereStep = typeof step === 'number';
 
-			if (!start && !end) {
-				start = 0;
-				end = this.obj.length;
-			}
+			if (start == null) start = 0;
+			if (end == null) end = this.obj.length;
 
 			var result = this.obj.slice(start, end);
 

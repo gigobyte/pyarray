@@ -15,6 +15,24 @@ export default function pyarray(obj) {
 			//handle negative indexes
 			const prop = parseInt(name, 10);
 			if(prop && prop < 0) return target.obj[target.obj.length+prop];
+		},
+
+		has: function(target, key) {
+			return key in target.obj;
+		},
+
+		deleteProperty: function(target, key) {
+			delete target.obj[key];
+			return true;
+		},
+
+		enumerate: function(target) {
+			console.log('called');
+			return Object.keys(target.obj)[Symbol.iterator]()
+		},
+
+		ownKeys: function(target) {
+			return Reflect.ownKeys(target.obj);
 		}
 	});
 
@@ -59,11 +77,8 @@ class Pyarray {
 
 		const isThereStep = typeof step === 'number';
 
-
-		if(!start && !end) {
-			start = 0;
-			end = this.obj.length;
-		}
+		if(start == null) start = 0;
+		if(end == null) end = this.obj.length;
 
 		let result =  this.obj.slice(start, end);
 
