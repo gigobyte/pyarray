@@ -138,7 +138,8 @@ class Pyarray {
 
 	index(obj) {
 		const nativeIndex = this.obj.indexOf(obj);
-		if(nativeIndex === -1) throw new Error(`pyarray: ValueError: ${obj} is not in list`)
+		if(nativeIndex === -1) throw new Error(`pyarray: ValueError: ${obj} is not in list`);
+		return nativeIndex;
 	}
 
 	count(obj) {
