@@ -1,6 +1,6 @@
 {
   "name": "pyarray",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A node module for manipulating arrays just like how you would in Python!",
   "main": "index.js",
   "scripts": {
