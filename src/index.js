@@ -12,9 +12,12 @@ export default function pyarray(obj) {
 			if (name in target.obj) return target.obj[name];
 			if (name in target) return target[name];
 
-			//handle negative indexes
-			const prop = parseInt(name, 10);
-			if(prop && prop < 0) return target.obj[target.obj.length+prop];
+			const [ start, end, step ] = name.split(':').map((e) => {
+				const result = parseInt(e, 10);
+				return isNaN(result) ? null : result;
+			});
+
+			return target.get(start, end, step);
 		},
 
 		has: function(target, key) {

@@ -46,8 +46,8 @@ Python | pyarray | Result
 ```fruits``` | ```fruits.get()``` | ```['Banana', 'Apple', 'Orange', 'Plum', 'Grape']```
 ```fruits[0]``` | ```fruits[0]``` or ```fruits.get(0)``` | ```'Banana'```
 ```fruits[-1]``` | ```fruits[-1]``` or ```fruits.get(-1)``` | ```'Grape'```
-```fruits[0:-2]``` | ```fruits.get(0,-2)``` | ```['Banana', 'Apple', 'Orange']```
-```fruits[0:-1:2]``` | ```fruits.get(0,-1,2)``` | ```['Banana', 'Orange']```
-```fruits[::-1]``` | ```fruits.get(null,null,-1)``` | ```['Grape', 'Plum', 'Orange', 'Apple', 'Banana']```
-```fruits[2:]``` | ```fruits.get(2,null)``` | ```['Orange', 'Plum', 'Grape']```
-```fruits[2::2]``` | ```fruits.get(2,null,2)``` | ```['Orange', 'Grape']```
+```fruits[0:-2]``` | ```fruits['0:-2']``` | ```['Banana', 'Apple', 'Orange']```
+```fruits[0:-1:2]``` | ```fruits['0:-1:2']``` | ```['Banana', 'Orange']```
+```fruits[::-1]``` | ```fruits['::-1']``` | ```['Grape', 'Plum', 'Orange', 'Apple', 'Banana']```
+You can also use the ```.get()``` method as a fallback, the syntax is
+```obj.get(start, end, step)```
