@@ -74,6 +74,13 @@ describe('Indexes', function () {
 		var obj = (0, _index2.default)([1, 2, 3, 4]);
 		expect(obj['::-1']).to.eql([4, 3, 2, 1]);
 	});
+
+	it('shoudnt accept step equal to 0', function () {
+		var obj = (0, _index2.default)([1, 2, 3, 4]);
+		expect(function () {
+			return obj['::0'];
+		}).to.throw(Error);
+	});
 });
 
 describe('Methods', function () {
@@ -193,5 +200,36 @@ describe('Methods', function () {
 			expect(obj.count(1)).to.equal(1);
 			expect(obj.count(4)).to.equal(0);
 		});
+	});
+});
+
+describe('Other functionalities', function () {
+	it('should return Pyarray object instead of proxy', function () {
+		var obj = (0, _index2.default)();
+		expect(obj).to.be.instanceof(_index.Pyarray);
+	});
+
+	it('should work with native JS methods', function () {
+		var obj = (0, _index2.default)();
+		obj.push(2);
+		expect(obj.get()).to.eql([2]);
+	});
+
+	it('should support delete', function () {
+		var obj = (0, _index2.default)([1, 2, 3]);
+		delete obj[1];
+		expect(obj.get()).to.eql([1,, 3]);
+	});
+
+	it('should support in operator', function () {
+		var obj = (0, _index2.default)([1, 2, 3]);
+		expect(2 in obj).to.be.true;
+	});
+
+	it('should throw when index is out of range', function () {
+		var obj = (0, _index2.default)();
+		expect(function () {
+			return obj[99];
+		}).to.throw(Error);
 	});
 });

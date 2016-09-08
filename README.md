@@ -8,6 +8,8 @@
   <br>
 </h1>
 
+[![Build Status](https://semaphoreci.com/api/v1/gigobyte/pyarray/branches/master/badge.svg)](https://semaphoreci.com/gigobyte/pyarray)
+
 ## Install
 [![NPM](https://nodei.co/npm/pyarray.png)](https://nodei.co/npm/pyarray/)
 
@@ -53,6 +55,14 @@ You can also use the ```.get()``` method as a fallback, the syntax is
 ```obj.get(start, end, step)```
 
 ## Testing
-1. ```$ npm install ```
+1. Install dependencies
+```$ npm install ```
 
-2. ```$ npm run test```
+2. Run tests
+```$ npm run test```
+
+3. View coverage
+```
+$ istanbul cover node_modules\mocha\bin\_mocha -- dist/tests
+$ open coverage/lcov-report/index.html
+```

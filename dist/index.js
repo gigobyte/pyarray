@@ -54,21 +54,13 @@ function pyarray(obj) {
 		deleteProperty: function deleteProperty(target, key) {
 			delete target.obj[key];
 			return true;
-		},
-
-		enumerate: function enumerate(target) {
-			return Object.keys(target.obj)[Symbol.iterator]();
-		},
-
-		ownKeys: function ownKeys(target) {
-			return Reflect.ownKeys(target.obj);
 		}
 	});
 
 	return proxy;
 }
 
-var Pyarray = function () {
+var Pyarray = exports.Pyarray = function () {
 	function Pyarray(obj) {
 		_classCallCheck(this, Pyarray);
 
@@ -85,10 +77,6 @@ var Pyarray = function () {
 	}, {
 		key: '_validateIndex',
 		value: function _validateIndex(index) {
-			if (typeof index !== 'number') {
-				throw new Error('pyarray: TypeError: an integer is required');
-			}
-
 			if (index >= this.obj.length) {
 				throw new Error('pyarray: IndexError: list index out of range');
 			}

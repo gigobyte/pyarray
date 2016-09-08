@@ -31,21 +31,13 @@ export default function pyarray(obj) {
 		deleteProperty: function(target, key) {
 			delete target.obj[key]
 			return true
-		},
-
-		enumerate: function(target) {
-			return Object.keys(target.obj)[Symbol.iterator]()
-		},
-
-		ownKeys: function(target) {
-			return Reflect.ownKeys(target.obj)
 		}
 	});
 
 	return proxy;
 }
 
-class Pyarray {
+export class Pyarray {
 	constructor(obj) {
 		this.obj = obj
 	}
@@ -57,10 +49,6 @@ class Pyarray {
 	}
 
 	_validateIndex(index) {
-		if(typeof index !== 'number') {
-			throw new Error('pyarray: TypeError: an integer is required')
-		}
-
 		if(index >= this.obj.length) {
 			throw new Error('pyarray: IndexError: list index out of range')
 		}

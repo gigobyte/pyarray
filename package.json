@@ -1,10 +1,10 @@
 {
   "name": "pyarray",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A node module for manipulating arrays just like how you would in Python!",
   "main": "dist/index.js",
   "scripts": {
-	"build": "babel src --presets es2015 --out-dir dist",
+    "build": "babel src --presets es2015 --out-dir dist",
     "test": "mocha dist/tests"
   },
   "repository": {
@@ -25,6 +25,7 @@
     "babel-core": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
     "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.0.2"
   }
 }

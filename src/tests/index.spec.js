@@ -1,5 +1,5 @@
 import chai from 'chai'
-import pyarray from '../../dist/index.js'
+import pyarray, { Pyarray } from '../../dist/index.js'
 const expect = chai.expect
 
 describe('Initialization', () => {
@@ -55,6 +55,11 @@ describe('Indexes', () => {
 	it('should return the array reversed', () => {
 		const obj = pyarray([1,2,3,4])
 		expect(obj['::-1']).to.eql([4,3,2,1])
+	})
+
+	it('shoudnt accept step equal to 0', () => {
+		const obj = pyarray([1,2,3,4])
+		expect(() => obj['::0']).to.throw(Error)
 	})
 })
 
@@ -159,5 +164,34 @@ describe('Methods', () => {
 			expect(obj.count(1)).to.equal(1)
 			expect(obj.count(4)).to.equal(0)
 		})
+	})
+})
+
+describe('Other functionalities', () => {
+	it('should return Pyarray object instead of proxy', () => {
+		const obj = pyarray()
+		expect(obj).to.be.instanceof(Pyarray)
+	})
+
+	it('should work with native JS methods', () => {
+		const obj = pyarray()
+		obj.push(2)
+		expect(obj.get()).to.eql([2])
+	})
+
+	it('should support delete', () => {
+		const obj = pyarray([1,2,3])
+		delete obj[1]
+		expect(obj.get()).to.eql([1,,3])
+	})
+
+	it('should support in operator', () => {
+		const obj = pyarray([1,2,3])
+		expect(2 in obj).to.be.true
+	})
+
+	it('should throw when index is out of range', () => {
+		const obj = pyarray()
+		expect(() => obj[99]).to.throw(Error)
 	})
 })
