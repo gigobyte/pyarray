@@ -51,3 +51,8 @@ Python | pyarray | Result
 ```fruits[::-1]``` | ```fruits['::-1']``` | ```['Grape', 'Plum', 'Orange', 'Apple', 'Banana']```
 You can also use the ```.get()``` method as a fallback, the syntax is
 ```obj.get(start, end, step)```
+
+## Testing
+1. ```$ npm install ```
+
+2. ```$ npm run test```
