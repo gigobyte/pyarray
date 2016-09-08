@@ -12,7 +12,11 @@ declare class Pyarray<T> {
     public count(data: T): number;
 }
 
-declare type PyArray<T> = Pyarray<T> & Array<T>;
+declare interface PyArrayIndex<T> {
+    [index: string]: Array<T>;
+}
+
+declare type PyArray<T> = PyArrayIndex<T> & Pyarray<T> & Array<T>;
 
 declare function pyarray<T>(list: Array<T>): PyArray<T>;
 
