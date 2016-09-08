@@ -1,8 +1,6 @@
 declare class Pyarray<T> {
     public constructor(array: Array<T>);
     public get(): Array<T>;
-    public get(index: number): T;
-    public get(start: number, end: number, step?: number): Array<T>;
     public append(data: T): void;
     public extend(list: Array<T>): void;
     public insert(index: number, data: T): void;
