@@ -3,6 +3,7 @@
   "version": "1.2.1",
   "description": "A node module for manipulating arrays just like how you would in Python!",
   "main": "dist/index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "build": "babel src --presets es2015 --out-dir dist",
     "test": "mocha dist/tests"

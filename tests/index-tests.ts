@@ -1,7 +1,8 @@
 import pyarray, { PyArray } from './../index';
 
 let fruits: PyArray<string> = pyarray(['Banana', 'Apple', 'Orange', 'Plum', 'Grape']);
-
+let numbers: PyArray<number> = pyarray<number>();
+numbers.append(9);
 fruits.push('Avocado');
 fruits.pop();
 let array: string = fruits.toString();
@@ -9,7 +10,7 @@ let all: Array<string> = fruits.get();
 let fruit: string = fruits[0];
 let some: Array<string> = fruits['0:-1:2'];
 all = fruits['::-1'];
-console.log(all, fruit, some);
+console.log(all, fruit, some, numbers.get());
 fruits.append('Avocado');
 fruits.extend(['Strawbarry', 'Blueberry']);
 fruits.insert(2, 'Coconut');
