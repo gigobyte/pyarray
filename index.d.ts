@@ -16,7 +16,7 @@ declare interface PyArrayIndex<T> {
 
 declare type PyArray<T> = PyArrayIndex<T> & Pyarray<T> & Array<T>;
 
-declare function pyarray<T>(list: Array<T>): PyArray<T>;
+declare function pyarray<T>(list?: Array<T>): PyArray<T>;
 
 export { PyArray };
 
