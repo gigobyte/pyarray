@@ -18,6 +18,6 @@ declare type PyArray<T> = PyArrayIndex<T> & Pyarray<T> & Array<T>;
 
 declare function pyarray<T>(list?: Array<T>): PyArray<T>;
 
-export { PyArray };
+export { Pyarray, PyArray };
 
 export default pyarray;
